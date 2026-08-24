@@ -33,10 +33,10 @@ You can install Gemini Copilot through any of the following methods:
   2. Open the Extensions View (`Ctrl+Shift+X` or `Cmd+Shift+X`).
   3. Search for **Gemini Copilot** and click **Install**.
 - **VS Code Marketplace**:
-  - Visit the [Visual Studio Marketplace](https://marketplace.visualstudio.com/) and search for **Gemini Copilot**.
+  - Visit the [Gemini Copilot Visual Studio Marketplace Page](https://marketplace.visualstudio.com/items?itemName=moechadSayshi.gemini-copilot).
 - **Command Line**:
   ```bash
-  code --install-extension <publisher-id>.gemini-copilot
+  code --install-extension moechadSayshi.gemini-copilot
   ```
 
 ### 2. Configure Your Gemini API Key
