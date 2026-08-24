@@ -1,0 +1,57 @@
+{
+  "name": "gemini-copilot",
+  "displayName": "Gemini Copilot",
+  "description": "AI-powered inline code completion (ghost text) using Google Gemini 3.6 Flash.",
+  "version": "0.1.0",
+  "publisher": "richard-gemini",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "AI",
+    "Formatters"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "geminiCopilot.setApiKey",
+        "title": "Gemini Copilot: Set Gemini API Key"
+      },
+      {
+        "command": "geminiCopilot.removeApiKey",
+        "title": "Gemini Copilot: Remove Gemini API Key"
+      }
+    ],
+    "configuration": {
+      "title": "Gemini Copilot",
+      "properties": {
+        "geminiCopilot.debounceDelay": {
+          "type": "integer",
+          "default": 750,
+          "minimum": 100,
+          "maximum": 5000,
+          "description": "The amount of time in milliseconds to wait after the last keystroke before making a suggestion request. Increase this if you hit free-tier rate limits."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "esbuild src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node --minify",
+    "watch-esbuild": "esbuild src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node --watch"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "@types/vscode": "^1.75.0",
+    "esbuild": "^0.17.11",
+    "typescript": "^4.9.5"
+  }
+}
