@@ -1,0 +1,8 @@
+.vscode/**
+src/**
+tsconfig.json
+package-lock.json
+node_modules/**
+.gitignore
+.git/**
+completion-extension-details.md

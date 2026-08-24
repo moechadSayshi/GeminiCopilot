@@ -3,15 +3,20 @@
   "displayName": "Gemini Copilot",
   "description": "AI-powered inline code completion (ghost text) using Google Gemini 3.6 Flash.",
   "version": "0.1.0",
-  "publisher": "richard-gemini",
+  "publisher": "moechadSayshi",
   "engines": {
     "vscode": "^1.75.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moechadSayshi/GeminiCopilot.git"
   },
   "categories": [
     "Programming Languages",
     "AI",
     "Formatters"
   ],
+  "icon": "gemi.ico",
   "activationEvents": [
     "*"
   ],
@@ -45,12 +50,15 @@
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "package": "esbuild src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node --minify",
-    "watch-esbuild": "esbuild src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node --watch"
+    "watch-esbuild": "esbuild src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node --watch",
+    "vsce:package": "vsce package",
+    "vsce:publish": "vsce publish"
   },
   "dependencies": {},
   "devDependencies": {
     "@types/node": "^18.11.18",
     "@types/vscode": "^1.75.0",
+    "@vscode/vsce": "^2.19.0",
     "esbuild": "^0.17.11",
     "typescript": "^4.9.5"
   }
