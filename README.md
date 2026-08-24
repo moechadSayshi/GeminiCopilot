@@ -23,38 +23,29 @@
 
 ---
 
-## ⚙️ Getting Started
+## ⚙️ Installation & Setup
 
-### Prerequisites
+### 1. Install the Extension
+You can install Gemini Copilot through any of the following methods:
 
-- **VS Code**: Version `1.75.0` or newer.
-- **Node.js**: Version `18.x` or newer (we recommend using Node.js `20.x` or newer).
-- **Gemini API Key**: Retrieve your own key from [Google AI Studio](https://aistudio.google.com/).
+- **VS Code Extensions View**:
+  1. Open VS Code.
+  2. Open the Extensions View (`Ctrl+Shift+X` or `Cmd+Shift+X`).
+  3. Search for **Gemini Copilot** and click **Install**.
+- **VS Code Marketplace**:
+  - Visit the [Visual Studio Marketplace](https://marketplace.visualstudio.com/) and search for **Gemini Copilot**.
+- **Command Line**:
+  ```bash
+  code --install-extension <publisher-id>.gemini-copilot
+  ```
 
-### Installation
-
-1.  **Clone the Repository**:
-    ```bash
-    git clone https://github.com/your-username/gemini-copilot.git
-    cd gemini-copilot
-    ```
-
-2.  **Install Dependencies**:
-    ```bash
-    npm install
-    ```
-
-3.  **Run the Extension Locally**:
-    - Open the cloned directory in VS Code.
-    - Press **`F5`** (or go to **Run and Debug** > **Run Extension**). This compiles the TypeScript code in the background and opens a new **Extension Development Host** window.
-
-### Environment Setup (Secure BYOK)
-
-Instead of environment variables or `settings.json`, your API key is managed securely inside VS Code:
-1.  Inside the new Extension Development Host window, open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`).
-2.  Search and run the command: **`Gemini Copilot: Set Gemini API Key`**.
-3.  Paste your Gemini API key and press `Enter`.
-4.  The status bar in the bottom-right corner will update to show **`✓ Gemini Copilot`**.
+### 2. Configure Your Gemini API Key
+Instead of saving your API key in plain text in `settings.json` or shell configurations, this extension stores it securely:
+1. Open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`).
+2. Search and run the command: **`Gemini Copilot: Set Gemini API Key`**.
+3. Paste your Gemini API key (retrieve it from [Google AI Studio](https://aistudio.google.com/)) and press `Enter`.
+4. The status bar in the bottom-right corner will update to show **`✓ Gemini Copilot`**.
+5. To remove the key at any time, run: **`Gemini Copilot: Remove Gemini API Key`**.
 
 ---
 
@@ -90,16 +81,34 @@ Adjust the extension behaviour by adding the following settings to your VS Code 
 
 ---
 
-## 🧪 Running Tests & Inspection
+## 🛠️ Development & Local Build
 
-Since inline completions are asynchronous, you can trace the extension behavior and logs in real-time:
-1.  Open the **Output** panel in the bottom of your VS Code workspace (`Ctrl+Shift+U` / `Cmd+Shift+U`).
-2.  In the dropdown menu at the top-right of the Output panel, select **Gemini Copilot**.
-3.  Here you will see live trace statements showing:
-    - Live debounce timer start/stop events.
-    - Active request aborts due to keystroke cancellation.
-    - API request statuses, execution latencies, and suggestions.
-    - Cool-down countdown progression when rate-limited.
+If you wish to modify, compile, or debug this extension locally:
+
+### Prerequisites
+- **VS Code**: Version `1.75.0` or newer.
+- **Node.js**: Version `18.x` or newer.
+
+### Local Development Steps
+1.  **Clone the Repository**:
+    ```bash
+    git clone https://github.com/your-username/gemini-copilot.git
+    cd gemini-copilot
+    ```
+2.  **Install Dependencies**:
+    ```bash
+    npm install
+    ```
+3.  **Run Extension Host**:
+    - Open the folder in VS Code.
+    - Press **`F5`** (or go to **Run and Debug** > **Run Extension**). This starts compilation in background and opens an **Extension Development Host** window.
+4.  **Real-Time Inspection & Logging**:
+    - Open the **Output** panel in the bottom of your VS Code workspace (`Ctrl+Shift+U` / `Cmd+Shift+U`).
+    - In the dropdown menu, select **Gemini Copilot** to see live trace logs for debounce timers, request cancellations, API performance, and rate-limiting cooldown timers.
+5.  **Package to VSIX**:
+    ```bash
+    npm run vsce:package
+    ```
 
 ---
 
